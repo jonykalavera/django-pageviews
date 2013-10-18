@@ -2,13 +2,17 @@ Introduction
 ============
 A very simple middleware based page view counter. It's sole purpose is to increment page views.
 
+Why This Fork
+=============
+> I want to add ajax based tracking. - JK
+
 
 Quickstart
 ==========
 
 1. Install from github or clone the repository:
 ```bash
-    pip install git+git://github.com/renyi/django-pageviews.git
+    pip install git+https://github.com/jonykalavera/django-pageviews.git
 ```
 
 2. Add 'pageviews' to INSTALLED_APPS.
