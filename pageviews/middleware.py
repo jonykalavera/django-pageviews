@@ -1,12 +1,9 @@
 # coding: utf-8
-from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.db.models import F
 
 from .models import HitCount
-
-PAGEVIEWS_OBJECT_ATTR = getattr(
-    settings, 'PAGEVIEWS_OBJECT_ATTR', 'content_object')
+from .settings import PAGEVIEWS_OBJECT_ATTR
 
 
 class PageViewsMiddleware:
