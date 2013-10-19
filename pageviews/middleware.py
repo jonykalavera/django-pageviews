@@ -11,7 +11,7 @@ class PageViewsMiddleware:
     def process_response(self, request, response, *args, **kwargs):
         if response.status_code == 200:
             content_object = getattr(request, PAGEVIEWS_OBJECT_ATTR, None)
-            if content_object and isinstance(Model, content_object):
+            if content_object and isinstance(content_object, Model):
                 content_type = ContentType.objects.get_for_model(
                     content_object.__class__)
                 hit, hit_created = HitCount.objects.get_or_create(
