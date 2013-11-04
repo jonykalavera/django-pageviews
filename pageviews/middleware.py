@@ -9,7 +9,7 @@ class PageViewsMiddleware:
             content_object = getattr(response, 'content_object', None)
             if content_object:
                 content_type = ContentType.objects.get_for_model(
-                    content_object._model)
+                    content_object.__class__)
                 hit, hit_created = HitCount.objects.get_or_create(
                     url=request.path, 
                     object_id=content_object.pk,
