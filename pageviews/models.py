@@ -19,6 +19,8 @@ class HitCount(models.Model):
     content_type = models.ForeignKey(ContentType, null=True)
     object_id = models.PositiveIntegerField(null=True)
     content_object = generic.GenericForeignKey('content_type', 'object_id')
+    #split counts by date
+    for_date = models.DateTimeField()
 
     class Meta:
         ordering = ('-created_at', '-updated_at')
