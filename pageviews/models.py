@@ -16,11 +16,11 @@ class HitCount(models.Model):
     url = models.CharField(_('URL'), max_length=2000)
     hits = models.PositiveIntegerField(_('Hits'), default=0)
     # related content_object
-    content_type = models.ForeignKey(ContentType, null=True)
-    object_id = models.PositiveIntegerField(null=True)
+    content_type = models.ForeignKey(ContentType, null=True, db_index=True)
+    object_id = models.PositiveIntegerField(null=True, db_index=True)
     content_object = generic.GenericForeignKey('content_type', 'object_id')
     #split counts by date
-    for_date = models.DateTimeField()
+    for_date = models.DateTimeField(db_index=True)
 
     class Meta:
         ordering = ('-created_at', '-updated_at')
